@@ -4,9 +4,9 @@ import AddItemForm from './components/AddItemForm';
 import ItemList from './components/ItemList';
 import NotificationBell from './components/NotificationBell';
 import LandingPage from './components/LandingPage';
-import { getItemsFromStorage, removeItemFromStorage } from './utils/localStorage';
-import { checkExpiryWorkflow, showNotification } from './utils/notifications';
-import { triggerKestraWorkflow } from './utils/kestraIntegration';
+import { getItemsFromStorage, removeItemFromStorage } from '../src/utils/ localStorage';
+import { checkExpiryWorkflow, showNotification } from '../src/utils/notifications';
+import { triggerKestraWorkflow } from '../src/utils/kestraIntegration';
 import './styles/main.scss';
 
 function App() {

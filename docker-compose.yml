@@ -17,6 +17,12 @@ services:
           server:
             workers:
               enabled: true
+          security:
+            basic:
+              enabled: true
+              username: "admin"
+              password: "kestra"
     volumes:
       - ./kestra/flows:/app/flows
+    tty: true
 
