@@ -5,7 +5,7 @@ import { FaBox, FaBell, FaClipboardList, FaArrowRight } from 'react-icons/fa';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <header className="hero">
+      <header className="hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div className="hero-content">
           <h1>Smart Expiry Tracker</h1>
           <p>Never let your items expire again. Track and manage with ease.</p>
@@ -14,7 +14,16 @@ const LandingPage = () => {
           </Link>
         </div>
         <div className="hero-image">
-          <img src="/hero-image.svg" alt="Expiry Tracker Illustration" />
+          <img
+            src="src/beecbd86-db8d-4641-86b0-287ab09670e4.webp"
+            alt="Expiry Tracker Illustration"
+            style={{
+              width: '80%',
+              maxWidth: '400px',
+              height: 'auto',
+              marginLeft: '180px',
+            }}
+          />
         </div>
       </header>
 
@@ -61,4 +70,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-

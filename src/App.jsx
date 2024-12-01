@@ -5,8 +5,8 @@ import ItemList from './components/ItemList';
 import NotificationBell from './components/NotificationBell';
 import LandingPage from './components/LandingPage';
 import { getItemsFromStorage, removeItemFromStorage } from '../src/utils/ localStorage';
-import { checkExpiryWorkflow, showNotification } from '../src/utils/notifications';
-import { triggerKestraWorkflow } from '../src/utils/kestraIntegration';
+import { checkExpiryWorkflow, showNotification } from './utils/notifications';
+import { triggerKestraWorkflow } from './utils/kestraIntegration';
 import './styles/main.scss';
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
     const newNotifications = checkExpiryWorkflow(items);
     setNotifications(newNotifications);
 
+    // Show browser notifications for new notifications
     newNotifications.forEach(notification => {
       showNotification(notification.message);
     });
@@ -45,7 +46,7 @@ function App() {
         <nav className="main-nav">
           <div className="logo">
             <Link to="/">
-              <img src="/logo.svg" alt="Expiry Tracker Logo" />
+              <img src="src/Logo.png" alt="Expiry Tracker Logo" />
             </Link>
           </div>
           <div className="nav-links">
