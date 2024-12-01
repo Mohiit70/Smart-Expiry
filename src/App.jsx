@@ -4,8 +4,9 @@ import AddItemForm from './components/AddItemForm';
 import ItemList from './components/ItemList';
 import NotificationBell from './components/NotificationBell';
 import LandingPage from './components/LandingPage';
-import { getItemsFromStorage, removeItemFromStorage } from '../src/utils/ localStorage';
-import { checkExpiryWorkflow, showNotification } from '../src/utils/notifications';
+import { getItemsFromStorage, removeItemFromStorage } from './utils/localStorage';
+import { checkExpiryWorkflow, showNotification } from './utils/notifications';
+import { triggerKestraWorkflow } from './utils/kestraIntegration';
 import './styles/main.scss';
 
 function App() {
@@ -21,10 +22,12 @@ function App() {
     const newNotifications = checkExpiryWorkflow(items);
     setNotifications(newNotifications);
 
-    // Show browser notifications for new notifications
     newNotifications.forEach(notification => {
       showNotification(notification.message);
     });
+
+    // Trigger Kestra workflow
+    triggerKestraWorkflow(items);
   }, [items]);
 
   const handleAddItem = (newItem) => {

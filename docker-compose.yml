@@ -1,0 +1,22 @@
+services:
+  kestra:
+    image: kestra/kestra:latest-full
+    ports:
+      - "8080:8080"
+    environment:
+      KESTRA_CONFIGURATION: |
+        kestra:
+          repository:
+            type: memory
+          queue:
+            type: memory
+          storage:
+            type: local
+            local:
+              base-path: "/tmp/storage"
+          server:
+            workers:
+              enabled: true
+    volumes:
+      - ./kestra/flows:/app/flows
+
