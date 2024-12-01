@@ -15,7 +15,7 @@ const LandingPage = () => {
         </div>
         <div className="hero-image">
           <img
-            src="src/beecbd86-db8d-4641-86b0-287ab09670e4.webp"
+            src="public/beecbd86-db8d-4641-86b0-287ab09670e4.webp"
             alt="Expiry Tracker Illustration"
             style={{
               width: '80%',

@@ -46,7 +46,7 @@ function App() {
         <nav className="main-nav">
           <div className="logo">
             <Link to="/">
-              <img src="src/Logo.png" alt="Expiry Tracker Logo" />
+              <img src="public/Logo.png" alt="Expiry Tracker Logo" />
             </Link>
           </div>
           <div className="nav-links">
