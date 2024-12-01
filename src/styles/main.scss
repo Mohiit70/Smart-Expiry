@@ -1,0 +1,92 @@
+@import './variables';
+@import './mixins';
+@import './animations';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main; // Ensure this variable is defined in `variables.scss`
+  background-color: $bg-primary;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $space-lg;
+  
+  @include responsive-mobile {
+    padding: $space-md;
+  }
+}
+
+.add-item-form {
+  margin-bottom: $space-lg;
+  
+  .form-group {
+    display: flex;
+    gap: $space-sm;
+    
+    input {
+      flex-grow: 1;
+      padding: $space-sm;
+      border: 1px solid lighten($primary-color, 30%);
+      border-radius: 4px;
+    }
+    
+    button {
+      @include flex-center;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      padding: $space-sm;
+      border-radius: 4px;
+      cursor: pointer;
+      @include transition;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.item-list {
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: $space-md;
+    margin-bottom: $space-sm;
+    border-radius: 4px;
+    @include box-shadow;
+    
+    &.expired {
+      background-color: lighten($danger-color, 40%);
+    }
+    
+    &.near-expiry {
+      background-color: lighten($warning-color, 40%);
+    }
+    
+    .delete-btn {
+      background: none;
+      border: none;
+      color: $danger-color;
+      cursor: pointer;
+    }
+  }
+  
+  .empty-state {
+    @include flex-center;
+    flex-direction: column;
+    color: lighten($text-primary, 50%);
+    margin-top: $space-lg;
+  }
+}

@@ -1,0 +1,37 @@
+id: expiry-notification
+namespace: hackfrost
+
+tasks:
+  - id: check-expiry
+    type: io.kestra.core.tasks.script.Node
+    script: |
+      const items = JSON.parse(process.env.EXPIRY_ITEMS || '[]');
+      const expiringItems = items.filter(item => {
+        const daysLeft = (new Date(item.expiryDate) - new Date()) / (1000 * 60 * 60 * 24);
+        return daysLeft <= 3;
+      });
+      console.log(JSON.stringify(expiringItems));
+
+  - id: send-notifications
+    type: io.kestra.core.tasks.notifications.Slack
+    url: ${SLACK_WEBHOOK}
+    message: "Expiring Items: {{ outputs.check-expiry }}"
+EOFcat << 'EOF' > kestra/flows/expiry-notification-flow.yml
+id: expiry-notification
+namespace: hackfrost
+
+tasks:
+  - id: check-expiry
+    type: io.kestra.core.tasks.script.Node
+    script: |
+      const items = JSON.parse(process.env.EXPIRY_ITEMS || '[]');
+      const expiringItems = items.filter(item => {
+        const daysLeft = (new Date(item.expiryDate) - new Date()) / (1000 * 60 * 60 * 24);
+        return daysLeft <= 3;
+      });
+      console.log(JSON.stringify(expiringItems));
+
+  - id: send-notifications
+    type: io.kestra.core.tasks.notifications.Slack
+    url: ${SLACK_WEBHOOK}
+    message: "Expiring Items: {{ outputs.check-expiry }}"
