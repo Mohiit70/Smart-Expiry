@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AddItemForm from './components/AddItemForm';
 import ItemList from './components/ItemList';
 import NotificationBell from './components/NotificationBell';
 import LandingPage from './components/LandingPage';
+import { getItemsFromStorage, removeItemFromStorage } from '../src/utils/ localStorage';
+import { checkExpiryWorkflow, showNotification } from '../src/utils/notifications';
 import './styles/main.scss';
 
 function App() {
   const [items, setItems] = useState([]);
   const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    const storedItems = getItemsFromStorage();
+    setItems(storedItems);
+  }, []);
+
+  useEffect(() => {
+    const newNotifications = checkExpiryWorkflow(items);
+    setNotifications(newNotifications);
+
+    // Show browser notifications for new notifications
+    newNotifications.forEach(notification => {
+      showNotification(notification.message);
+    });
+  }, [items]);
+
+  const handleAddItem = (newItem) => {
+    setItems(prev => [...prev, newItem]);
+  };
+
+  const handleDeleteItem = (id) => {
+    removeItemFromStorage(id);
+    setItems(prev => prev.filter(item => item.id !== id));
+  };
 
   return (
     <Router>
@@ -31,17 +57,9 @@ function App() {
             path="/tracker" 
             element={
               <>
-                <AddItemForm 
-                  onAddItem={(newItem) => {
-                    setItems(prev => [...prev, newItem]);
-                  }} 
-                />
-                <ItemList 
-                  items={items}
-                  onDeleteItem={(id) => {
-                    setItems(prev => prev.filter(item => item.id !== id));
-                  }}
-                />
+                <h1>My Expiry Tracker</h1>
+                <AddItemForm onAddItem={handleAddItem} />
+                <ItemList items={items} onDeleteItem={handleDeleteItem} />
               </>
             } 
           />
@@ -52,3 +70,4 @@ function App() {
 }
 
 export default App;
+

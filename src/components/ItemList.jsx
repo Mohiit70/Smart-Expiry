@@ -34,13 +34,20 @@ const ItemList = ({ items, onDeleteItem }) => {
           <button 
             onClick={() => onDeleteItem(item.id)} 
             className="delete-btn"
+            aria-label="Delete item"
           >
             <FaTrash />
           </button>
         </div>
       ))}
+      {items.length === 0 && (
+        <div className="empty-state">
+          <p>No items added yet. Start by adding some items to track!</p>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ItemList;
+
