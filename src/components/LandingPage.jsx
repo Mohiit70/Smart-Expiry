@@ -5,63 +5,78 @@ import { FaBox, FaBell, FaClipboardList, FaArrowRight } from 'react-icons/fa';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <header className="hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <header className="hero">
         <div className="hero-content">
-          <h1>Smart Expiry Tracker</h1>
-          <p>Never let your items expire again. Track and manage with ease.</p>
+          <h1 className="hero-title">Never Let Your Items Expire Again</h1>
+          <p className="hero-description">
+            Track and manage your items with our intuitive Smart Expiry Tracker.
+          </p>
           <Link to="/tracker" className="cta-button">
             Get Started <FaArrowRight />
           </Link>
         </div>
         <div className="hero-image">
           <img
-            src="/beecbd86-db8d-4641-86b0-287ab09670e4.webp"
+            src="public/hero section.png"
             alt="Expiry Tracker Illustration"
-            style={{
-              width: '80%',
-              maxWidth: '400px',
-              height: 'auto',
-              marginLeft: '180px',
-            }}
+            className="hero-illustration"
           />
         </div>
       </header>
 
       <section className="features">
-        <div className="feature">
-          <FaBox className="feature-icon" />
-          <h3>Organize Inventory</h3>
-          <p>Add and track items with our intuitive interface.</p>
+        <div className="feature-item">
+          <div className="feature-icon">
+            <FaBox />
+          </div>
+          <h3 className="feature-title">Organize Inventory</h3>
+          <p className="feature-description">
+            Add and track items with our intuitive interface.
+          </p>
         </div>
-        <div className="feature">
-          <FaBell className="feature-icon" />
-          <h3>Timely Alerts</h3>
-          <p>Receive notifications before items expire.</p>
+        <div className="feature-item">
+          <div className="feature-icon">
+            <FaBell />
+          </div>
+          <h3 className="feature-title">Timely Alerts</h3>
+          <p className="feature-description">
+            Receive notifications before items expire.
+          </p>
         </div>
-        <div className="feature">
-          <FaClipboardList className="feature-icon" />
-          <h3>Visual Insights</h3>
-          <p>Get a clear overview of your item statuses.</p>
+        <div className="feature-item">
+          <div className="feature-icon">
+            <FaClipboardList />
+          </div>
+          <h3 className="feature-title">Visual Insights</h3>
+          <p className="feature-description">
+            Get a clear overview of your item statuses.
+          </p>
         </div>
       </section>
 
       <section className="how-it-works">
-        <h2>How It Works</h2>
+        <h2 className="section-title">How It Works</h2>
         <div className="steps">
-          <div className="step">
+          <div className="step-item">
             <div className="step-number">1</div>
-            <h4>Add Items</h4>
-            <p>Easily input your items with names, expiry dates, and images.</p>
+            <h4 className="step-title">Add Items</h4>
+            <p className="step-description">
+              Easily input your items with names, expiry dates, and images.
+            </p>
           </div>
-          <div className="step">
+          <div className="step-item">
             <div className="step-number">2</div>
-            <h4>Track Expiry</h4>
-            <p>We'll keep track of expiry dates and notify you when needed.</p>
+            <h4 className="step-title">Track Expiry</h4>
+            <p className="step-description">
+              We'll keep track of expiry dates and notify you when needed.
+            </p>
           </div>
-          <div className="step">
+          <div className="step-item">
             <div className="step-number">3</div>
-            <h4>Stay Organized</h4>
-            <p>Manage your inventory efficiently and reduce waste.</p>
+            <h4 className="step-title">Stay Organized</h4>
+            <p className="step-description">
+              Manage your inventory efficiently and reduce waste.
+            </p>
           </div>
         </div>
       </section>

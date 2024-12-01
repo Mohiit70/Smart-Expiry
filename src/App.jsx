@@ -44,12 +44,8 @@ function App() {
     <Router>
       <div className="app-container">
         <nav className="main-nav">
-          <div className="logo">
-            <Link to="/">
-              <img src="/Logo.png" alt="Expiry Tracker Logo" />
-            </Link>
-          </div>
           <div className="nav-links">
+            <Link to="/" className="logo-name">Smart Expiry Tracker</Link>
             <Link to="/tracker">My Tracker</Link>
             <NotificationBell notifications={notifications} />
           </div>
@@ -74,4 +70,3 @@ function App() {
 }
 
 export default App;
-
