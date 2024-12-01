@@ -17,7 +17,7 @@ const LandingPage = () => {
         </div>
         <div className="hero-image">
           <img
-            src="public/hero section.png"
+            src="/hero section.png"
             alt="Expiry Tracker Illustration"
             className="hero-illustration"
           />
