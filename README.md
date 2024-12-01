@@ -49,7 +49,7 @@ Here are some snapshots of the app in action:
 ## Demo Video
 
 Watch a demo of the app in action on YouTube:  
-[![Smart Expiry Demo](http://img.youtube.com/vi/your-video-id/0.jpg)](https://www.youtube.com/watch?v=your-video-id)
+[![Smart Expiry Demo](https://img.youtube.com/vi/kFwUqLk6Gy4/0.jpg)](https://youtu.be/kFwUqLk6Gy4)
 
 ## Getting Started
 
